@@ -7,7 +7,7 @@ def _parse(s):
 
 SETTING = utils.FunctionSetting(_parse, "yourls",
     "Set YOURLS server (and token) to use for URL shortening",
-    example="https://bitbot.dev/yourls-api.php?1002a612b4",
+    example="https://niblet.dev/yourls-api.php?1002a612b4",
     format=utils.sensitive_format)
 
 @utils.export("botset", SETTING)

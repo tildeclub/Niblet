@@ -14,7 +14,7 @@ def _setting_parse(s):
 
 @utils.export("botset", utils.FunctionSetting(_setting_parse,
     "fediverse-server", "The bot's local fediverse server username",
-    example="@bot@bitbot.dev"))
+    example="@bot@niblet.dev"))
 @utils.export("set", utils.FunctionSetting(_setting_parse, "fediverse",
     help="Set your fediverse account", example="@gargron@mastodon.social"))
 class Module(ModuleManager.BaseModule):
