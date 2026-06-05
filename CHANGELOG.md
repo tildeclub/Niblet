@@ -1,4 +1,4 @@
-# 2020-08-26 - BitBot v1.20.0
+# 2020-08-26 - Niblet v1.20.0
 
 Added:
 - `ban-enforce.py` to kick people that match a new ban mask
@@ -26,11 +26,11 @@ Fixed:
 - `!words` was squashing results in to a dict, losing days
 - INVEX and EXCEPT lists were looking at the wrong index for masks
 
-# 2020-02-29 - BitBot v1.19.0 ("Command Specs Spark Joy")
+# 2020-02-29 - Niblet v1.19.0 ("Command Specs Spark Joy")
 
 Added:
 - Commands Specs. expression language for defining format of command args
-- `.bitbot/mod-data/` for addition data files for modules
+- `.niblet/mod-data/` for addition data files for modules
 - Concept of core vs additional modules. Core modules can be reloaded but not unloaded
 - `channel_access` groups: `low`/`high`/`admin`
 - Proof of concept reminders on a cron schedule (`cron_reminders.py`)
@@ -51,7 +51,7 @@ Added:
 Changed:
 - IRCv3's `labeled-response` was ratified
 - IRCv3's `setname` was ratified
-- `channel_log` now logs to `.bitbot/mod-data/channel_log/`
+- `channel_log` now logs to `.niblet/mod-data/channel_log/`
 - `channel_log` can now RSA+AES(CBC) encrypt log files
 - Word tracking is now done per day. use `migration/v01.19.0-words.py` to migrate old data
 - Totally rewrote `badges.py` command interface
@@ -77,7 +77,7 @@ Fixed:
 - Crash caused by division by zero in `title.py` difference checking
 - `internal.identified` command was being fired for every message with an `@account` tag (`permissions`)
 
-# 2020-01-20 - BitBot v1.18.2
+# 2020-01-20 - Niblet v1.18.2
 
 Changed:
 - Colourise server address in `server-notice` formatting (`format_activity.py`)
@@ -87,12 +87,12 @@ Fixed:
 - `IRCBuffer.Buffer.find()`'s `not_pattern` arg should be optional
 - `utils.datetime.iso8601_parse` no longer has a `microseconds` arg (`youtube.py`)
 
-# 2020-01-20 - BitBot v1.18.1
+# 2020-01-20 - Niblet v1.18.1
 
 Fixed:
 - Formatting variable typo for handling TOPIC (`format_activity.py`)
 
-# 2020-01-20 - BitBot v1.18.0
+# 2020-01-20 - Niblet v1.18.0
 
 Added:
 - New dependency in `requirements.txt`: `dateutils`
@@ -117,18 +117,18 @@ Fixed:
 - Show username when fediverse displayname is "" (`fediverse`)
 - `++asd++` used to give karma to both `asd++` and `++asd` (`karma.py`)
 
-# 2020-01-08 - BitBot v1.17.2
+# 2020-01-08 - Niblet v1.17.2
 
 Fixed:
 - Incorrect format for HTTP UserAgent (missing ")")
 
-# 2019-12-13 - BitBot v1.17.1
+# 2019-12-13 - Niblet v1.17.1
 
 Fixed:
 - Crash caused by switching `coins.py` to using `cron` scheduling without removing timer-related code
 - Typo in function call name in `cron.py`
 
-# 2019-12-13 - BitBot v1.17.0
+# 2019-12-13 - Niblet v1.17.0
 
 Added:
 - Ability to `.save()` `bot.conf` - we now use only this for module whitelist/blacklist
@@ -140,7 +140,7 @@ Added:
 - `dnsbl` module to loop up given IPv4 and IPv6 addresses in blacklists
 
 Changed:
-- "Core" modules (modules needed for base operation of bitbot) moved to `src/core_modules` and made blacklist-immune
+- "Core" modules (modules needed for base operation of niblet) moved to `src/core_modules` and made blacklist-immune
 - Better parsing error for `!config u birthday` (`birthday.py`)
 - Show display name, not username, when available (`fediverse.py`)
 - By default, show `locked`/`unlocked` github issue/PR events (`git_webhooks`)
@@ -148,10 +148,10 @@ Changed:
 - Hostmasks are now precompiled to find users that match them (`permissions`)
 
 Removed:
-- `-m`/`-M` args to `bitbotd` - didn't work any more due to databse locking
+- `-m`/`-M` args to `nibletd` - didn't work any more due to databse locking
 - `database_backup.py` - this was always a weird hack. Added a note about backups in `README.md`
 
-# 2019-12-01 - BitBot v1.16.1
+# 2019-12-01 - Niblet v1.16.1
 
 Changed:
 - Response to giving karma now makes sense
@@ -159,7 +159,7 @@ Changed:
 Fixed:
 - Typo preventing users giving karma
 
-# 2019-12-01 - BitBot v1.16.0
+# 2019-12-01 - Niblet v1.16.0
 
 Added:
 - Show target in formatted private `NOTICE` events (`format_activity.py`)
@@ -179,12 +179,12 @@ Changed:
 - Karma is now stored per-user and you can give yourself karma. Run `migration/v01.16.00-karma` to migrate old karma.
 - Unique User-Agent (`utils.http.USERAGENT`)
 - Nickname hashed colourisation now matches weechat's default (`utils.irc`)
-- `./bitbotd -m permissions -M master-password` moved to `./bitbotctl command master-password`
+- `./nibletd -m permissions -M master-password` moved to `./nibletctl command master-password`
 - `utils.http.Response.data` is now always `bytes` - use `.decode()`/`.json()`/`.soup()`
 - `to.py` -> `tell.py`; move `!to` to `!tell` but add `!to` as an alias
 - Sed edits are now cumulative (`sed.py`)
 
-# 2019-11-18 - BitBot v1.15.0
+# 2019-11-18 - Niblet v1.15.0
 
 Added:
 - Optionally colourise nicknames when printed to log (`format_activity.py` and `print_activity.py`)
@@ -192,10 +192,10 @@ Added:
 - Stop/start REST API HTTPd when trying to reload all modules (`ModuleManager` and `rest_api.py`)
 - Individual channels can opt out of printing to INFO log (`!config c print off`, `print_activity.py`)
 - Opt-in shlex argument parsing for command callbacks (`commands`)
-- Show when BitBot first saw you speak in `!words` output (`words.py`)
+- Show when Niblet first saw you speak in `!words` output (`words.py`)
 
 Changed:
-- Logging moved to `~/.bitbot/logs/` by default
+- Logging moved to `~/.niblet/logs/` by default
 - Better eval API for `eval_python.py` (now py3 only)
 - Better single-line normalisation for ActivityPub Activities (`fediverse`)
 - Better error messages shown to user when a fediverse Actor can't be found (`fediverse`)
@@ -211,9 +211,9 @@ Fixed:
 - Background colour formatting was being lost (`utils.irc`)
 
 Removed:
-- `tfl.py` moved to `bitbot-modules`
+- `tfl.py` moved to `niblet-modules`
 
-# 2019-11-04 - BitBot v1.14.0
+# 2019-11-04 - Niblet v1.14.0
 
 Added:
 - Add Travis config to run `mypy`
@@ -240,11 +240,11 @@ Fixed:
 Removed:
 - `!timezone`
 
-# 2019-10-25 - BitBot v1.13.0
+# 2019-10-25 - Niblet v1.13.0
 
 Added:
 - `setup.py`
-- `bitbotctl` - daemon control system through unix domain sockets
+- `nibletctl` - daemon control system through unix domain sockets
 - Basic GitLab webhook support in `git_webhooks`
 - Catch `m.youtube.com` URLs in `auto-youtube`
 - Support UTF8 domains by punycode (idna) encoding
@@ -254,8 +254,8 @@ Added:
 - `votes-cast-restricted` to restrict voting to voiced-or-above users
 
 Changed:
-- `start.py` -> `bitbotd`
-- Database and config are now expected in `~/.bitbot/` (unless `--database` and `--config` are specified)
+- `start.py` -> `nibletd`
+- Database and config are now expected in `~/.niblet/` (unless `--database` and `--config` are specified)
 - Database backup files are now in `bot.db.{time}.back` format
 - Don't say a users vote was changed when it wasn't (`vote.py`)
 - Bot will not die when there's no connected servers
@@ -276,7 +276,7 @@ Removed:
 - `cve.py`
 - `EVENTS.md`
 
-# 2019-10-10 - BitBot v1.12.0
+# 2019-10-10 - Niblet v1.12.0
 
 Added:
 - Basic lock file mechanics (`src/LockFile.py`)
@@ -368,7 +368,7 @@ Removed:
 - `strax.py`
 - `timer.py`
 
-# 2019-08-30 - BitBot v1.11.1
+# 2019-08-30 - Niblet v1.11.1
 
 Added:
 - `utils.IntRangeSetting`
@@ -383,7 +383,7 @@ Fixed:
 - Duplicate `def op` in `channel_op.py` (due to copypaste)
 - `git-prevent-highlight` was failing to unhighlight organisations
 
-# 2019-08-15 - BitBot v1.11.0
+# 2019-08-15 - Niblet v1.11.0
 
 Added:
 - `rss.py`
@@ -453,7 +453,7 @@ Fixed:
 - `_write_buffer` locking to avoid race condition
 - `Capability().copy().depends_on` was mutable to the original copy
 
-# 2019-06-23 - BitBot v1.10.0
+# 2019-06-23 - Niblet v1.10.0
 
 Added:
 - Outbound message filtering (`message_filter.py`)
@@ -503,7 +503,7 @@ Removed:
 - `bytes-read-per-second` and `bytes-written-per-second` from stats endpoint
 - `upc.py`
 
-# 2019-06-09 - BitBot v1.9.2
+# 2019-06-09 - Niblet v1.9.2
 
 Added:
 - Show seconds it took to !bef/!trap
@@ -516,14 +516,14 @@ Fixed:
 - Daemonify tweet thread
 - Don't add TAGMSGs to IRCBuffer objects
 
-# 2019-06-08 - BitBot v1.9.1
+# 2019-06-08 - Niblet v1.9.1
 
 Fixed:
 - Fix ERROR on `CAP NEW` caused by STS typo
 - Fix hanging on `CAP NEW` due to duplicate `REQ`
 - STATUSMSG stripping should only be STATUSMSG symbols, not all PREFIX symbols
 
-# 2019-06-07 - BitBot v1.9.0
+# 2019-06-07 - Niblet v1.9.0
 
 Added:
 - IRCv3: Also look at CTCP events for msgids
@@ -549,7 +549,7 @@ Fixed:
 - `check_purge()` after removing contextual hooks from an EventHook
 - IRCv3: Escape message tag values
 
-# 2019-06-03 - BitBot v1.8.0
+# 2019-06-03 - Niblet v1.8.0
 
 Added:
 - Module dependency system
@@ -571,12 +571,12 @@ Fixed
 - Only enact write throttling when immediate-write-buffer is empty
 - Non-throttled lines no longer delay throttled lines
 
-# 2019-05-24 - BitBot v1.7.1
+# 2019-05-24 - Niblet v1.7.1
 
 Fixed:
 - Fix crash caused by CAP NEW
 
-# 2019-05-23 - BitBot v1.7.0
+# 2019-05-23 - Niblet v1.7.0
 
 Added:
 - Add !addserver
@@ -593,4 +593,4 @@ Changed:
 
 Fixed:
 - Typos/bugs in BATCH and FAIL
-- Fix crash caused by BitBot messaging himself
+- Fix crash caused by Niblet messaging himself

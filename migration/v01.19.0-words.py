@@ -1,5 +1,5 @@
 # Used to migrate word stats from prior to v1.19.0
-# usage: $ python3 migration/v01.19.00-words.py ~/.bitbot/bot.db
+# usage: $ python3 migration/v01.19.00-words.py ~/.niblet/bot.db
 
 import argparse
 parser = argparse.ArgumentParser(description="Migrate pre-v1.19.0 word stats")

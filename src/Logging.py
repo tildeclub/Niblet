@@ -10,7 +10,7 @@ LEVELS = {
     "critical": logging.CRITICAL
 }
 
-class BitBotFormatter(logging.Formatter):
+class NibletFormatter(logging.Formatter):
     def formatTime(self, record, datefmt=None):
         datetime_obj = datetime.datetime.fromtimestamp(record.created)
         return utils.datetime.format.iso8601(datetime_obj,
@@ -42,7 +42,7 @@ class Log(object):
 
         self.logger.setLevel(LEVELS["trace"])
 
-        formatter = BitBotFormatter("%(asctime)s [%(levelname)s] %(message)s")
+        formatter = NibletFormatter("%(asctime)s [%(levelname)s] %(message)s")
 
         stdout_handler = logging.StreamHandler(sys.stdout)
         stdout_handler.setLevel(stdout_level)

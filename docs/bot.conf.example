@@ -3,11 +3,11 @@
 
 [bot]
 
-# configuration related to where/how bitbot accesses files and databases.
+# configuration related to where/how niblet accesses files and databases.
 # commented out values are the default values. {DATA} is replaced with data-directory
 
-#data-directory           = ~/.bitbot
-#log-directory            = /var/log/bitbot/
+#data-directory           = ~/.niblet
+#log-directory            = /var/log/niblet/
 #lock-file                = {DATA}/bot.lock
 #sock-file                = {DATA}/bot.sock
 
@@ -23,7 +23,7 @@ tls-certificate          =
 # localhost port used for REST API
 api-port                 =
 
-# the default channel BitBot automatically joins
+# the default channel Niblet automatically joins
 bot-channel              =
 
 # module blacklist and whitelist. comma-separated. leave both empty to load all

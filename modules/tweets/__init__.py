@@ -22,7 +22,7 @@ REGEX_TWITTERURL = re.compile(
 def _get_follows():
     return _bot.database.channel_settings.find_by_setting("twitter-follow")
 
-class BitBotStreamListener(tweepy.StreamListener):
+class NibletStreamListener(tweepy.StreamListener):
     def on_status(self, status):
         _bot.trigger(lambda: self._on_status(status))
     def _on_status(self, status):
@@ -99,7 +99,7 @@ class Module(ModuleManager.BaseModule):
         for username in usernames:
             user_ids.append(str(api.get_user(screen_name=username).id))
 
-        self._stream = tweepy.Stream(auth=auth, listener=BitBotStreamListener(),
+        self._stream = tweepy.Stream(auth=auth, listener=NibletStreamListener(),
             tweet_mode="extended")
 
         self._thread = threading.Thread(

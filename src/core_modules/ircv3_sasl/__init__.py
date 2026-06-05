@@ -32,7 +32,7 @@ HARDFAIL = utils.BoolSetting("sasl-hard-fail",
 
 @utils.export("serverset", utils.FunctionSetting(_parse, "sasl",
     "Set the sasl username/password for this server",
-    example="PLAIN BitBot:hunter2", format=utils.sensitive_format))
+    example="PLAIN Niblet:hunter2", format=utils.sensitive_format))
 @utils.export("serverset", HARDFAIL)
 @utils.export("botset", HARDFAIL)
 class Module(ModuleManager.BaseModule):

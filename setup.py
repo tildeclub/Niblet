@@ -6,15 +6,15 @@ with open("VERSION", "r") as version_file:
     version = version_file.read().strip()
 
 setuptools.setup(
-    name="bitbot",
+    name="niblet",
     version=version,
-    scripts=["bitbotd", "bitbotctl"],
+    scripts=["nibletd", "nibletctl"],
     author="jesopo",
-    author_email="bitbot@jesopo.uk",
+    author_email="niblet@jesopo.uk",
     description="Modular event-driven IRC bot",
     long_description=long_description,
     long_description_content_type="text/markdown",
-    url="https://github.com/jesopo/bitbot",
+    url="https://github.com/jesopo/niblet",
     packages=setuptools.find_packages(),
     classifiers=[
         "Environment :: Console",

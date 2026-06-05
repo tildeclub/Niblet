@@ -9,7 +9,7 @@ from src import IRCBot, ModuleManager, utils
 class Module(ModuleManager.BaseModule):
     @utils.hook("received.ctcp.request.version")
     def ctcp_version(self, event):
-        default = "BitBot %s (%s)" % (IRCBot.VERSION, IRCBot.SOURCE)
+        default = "Niblet %s (%s)" % (IRCBot.VERSION, IRCBot.SOURCE)
 
         event["user"].send_ctcp_response("VERSION",
             self.bot.config.get("ctcp-version", default))

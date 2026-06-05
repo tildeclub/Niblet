@@ -1,5 +1,5 @@
 ````markdown
-# BitBot
+# Niblet
 Event-driven, modular IRC bot for Python 3.
 
 ---
@@ -15,8 +15,8 @@ Event-driven, modular IRC bot for Python 3.
 
 ### 1) Get the code
 ```bash
-git clone https://github.com/bitbot-irc/bitbot.git
-cd bitbot
+git clone https://github.com/niblet-irc/niblet.git
+cd niblet
 ````
 
 ### 2) Create a virtualenv
@@ -48,9 +48,9 @@ pip install -r requirements.txt
 ### 4) Configure
 
 ```bash
-mkdir -p ~/.bitbot
-cp docs/bot.conf.example ~/.bitbot/bot.conf
-# Edit ~/.bitbot/bot.conf: set nick/ident/realname, servers/channels, and enable modules.
+mkdir -p ~/.niblet
+cp docs/bot.conf.example ~/.niblet/bot.conf
+# Edit ~/.niblet/bot.conf: set nick/ident/realname, servers/channels, and enable modules.
 # Some modules (google/youtube/spotify/…​) require API keys; add them here before enabling.
 # The 'user_time' module depends on the 'location' module being configured.
 ```
@@ -58,14 +58,14 @@ cp docs/bot.conf.example ~/.bitbot/bot.conf
 ### 5) First run
 
 ```bash
-./bitbotd -a   # add your network(s)
-./bitbotd      # start the bot (foreground)
+./nibletd -a   # add your network(s)
+./nibletd      # start the bot (foreground)
 ```
 
 ### 6) Master admin password
 
 ```bash
-./bitbotctl command master-password
+./nibletctl command master-password
 # Use this in IRC to register your admin account.
 ```
 
@@ -74,17 +74,17 @@ cp docs/bot.conf.example ~/.bitbot/bot.conf
 ## Run as a service (optional)
 
 ```ini
-# /etc/systemd/system/bitbot.service
+# /etc/systemd/system/niblet.service
 [Unit]
-Description=BitBot IRC bot
+Description=Niblet IRC bot
 After=network-online.target
 Wants=network-online.target
 
 [Service]
-User=bitbot
-WorkingDirectory=/opt/bitbot
-Environment=PATH=/opt/bitbot/.venv/bin
-ExecStart=/opt/bitbot/bitbotd
+User=niblet
+WorkingDirectory=/opt/niblet
+Environment=PATH=/opt/niblet/.venv/bin
+ExecStart=/opt/niblet/nibletd
 Restart=on-failure
 RestartSec=5
 
@@ -95,30 +95,30 @@ WantedBy=multi-user.target
 Deploy:
 
 ```bash
-sudo useradd -r -s /usr/sbin/nologin bitbot 2>/dev/null || true
-sudo cp -r ~/bitbot /opt/bitbot && sudo chown -R bitbot:bitbot /opt/bitbot
-cd /opt/bitbot
-sudo -u bitbot python3 -m venv .venv
-sudo -u bitbot .venv/bin/pip install -U pip wheel
-sudo -u bitbot .venv/bin/pip install --only-binary=:all: -r requirements.txt
+sudo useradd -r -s /usr/sbin/nologin niblet 2>/dev/null || true
+sudo cp -r ~/niblet /opt/niblet && sudo chown -R niblet:niblet /opt/niblet
+cd /opt/niblet
+sudo -u niblet python3 -m venv .venv
+sudo -u niblet .venv/bin/pip install -U pip wheel
+sudo -u niblet .venv/bin/pip install --only-binary=:all: -r requirements.txt
 sudo systemctl daemon-reload
-sudo systemctl enable --now bitbot
+sudo systemctl enable --now niblet
 ```
 
 **Upgrade:**
 
 ```bash
-cd /opt/bitbot
-sudo -u bitbot git pull
-sudo -u bitbot .venv/bin/pip install -U -r requirements.txt
-sudo systemctl restart bitbot
+cd /opt/niblet
+sudo -u niblet git pull
+sudo -u niblet .venv/bin/pip install -U -r requirements.txt
+sudo systemctl restart niblet
 ```
 
 ---
 
 ## Backups
 
-Back up the entire `~/.bitbot` directory (config, database, rotated logs). Tools like
+Back up the entire `~/.niblet` directory (config, database, rotated logs). Tools like
 [borgbackup](https://borgbackup.readthedocs.io/en/stable/) work well.
 
 ---
@@ -126,6 +126,6 @@ Back up the entire `~/.bitbot` directory (config, database, rotated logs). Tools
 ## Docs, Support, License
 
 * Configuration help: see `docs/help/config.md`.
-* Chat: `#bitbot` on irc.libera.chat.
+* Chat: `#niblet` on irc.libera.chat.
 * License: GNU GPL v2.0 — see [LICENSE](LICENSE).
 

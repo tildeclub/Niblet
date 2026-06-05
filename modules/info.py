@@ -6,7 +6,7 @@ class Module(ModuleManager.BaseModule):
     def version(self, event):
         commit = utils.git_commit(self.bot.directory)
 
-        out = "Version: BitBot %s" % IRCBot.VERSION
+        out = "Version: Niblet %s" % IRCBot.VERSION
         if not commit == None:
             branch, commit = commit
             out = "%s (%s@%s)" % (out, branch or "", commit)

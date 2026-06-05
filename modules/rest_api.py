@@ -146,7 +146,7 @@ class Handler(http.server.BaseHTTPRequestHandler):
     def log_message(self, format, *args):
         return
 
-class BitBotIPv6HTTPd(http.server.HTTPServer):
+class NibletIPv6HTTPd(http.server.HTTPServer):
     address_family = socket.AF_INET6
 
 @utils.export("botset",
@@ -177,7 +177,7 @@ class Module(ModuleManager.BaseModule):
 
     def _start_httpd(self):
         port = int(self.bot.config.get("api-port", str(DEFAULT_PORT)))
-        self.httpd = BitBotIPv6HTTPd(("::1", port), Handler)
+        self.httpd = NibletIPv6HTTPd(("::1", port), Handler)
 
         self.thread = threading.Thread(target=self.httpd.serve_forever)
         self.thread.daemon = True

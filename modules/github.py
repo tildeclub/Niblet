@@ -22,7 +22,7 @@ API_PULL_URL = "https://api.github.com/repos/%s/%s/pulls/%s"
 
 @utils.export("channelset", utils.Setting("github-default-repo",
     "Set the default github repo for the current channel",
-    example="jesopo/bitbot"))
+    example="jesopo/niblet"))
 @utils.export("channelset", utils.BoolSetting("auto-github",
     "Enable/disable automatically getting github issue/PR info"))
 @utils.export("channelset", utils.IntSetting("auto-github-cooldown",

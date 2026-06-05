@@ -1,5 +1,5 @@
 # Used to migrate aliases from prior to v1.16.0
-# usage: $ python3 migration/v01.16.00-aliases.py ~/.bitbot/bot.db
+# usage: $ python3 migration/v01.16.00-aliases.py ~/.niblet/bot.db
 
 import argparse
 parser = argparse.ArgumentParser(description="Migrate pre-v1.16.0 aliases")
